@@ -1,18 +1,3 @@
-
-$( window ).on("load",
-	function () {
-		var mt = '-'+ $(".ken-burns-bg").height()/2+'px';
-		$(".ken-burns-bg").css('margin-top', mt);
-	})
-  
-  $( window ).on("resize",
-	function () {
-		var mt = '-'+ $(".ken-burns-bg").height()/2+'px';
-		$(".ken-burns-bg").css('margin-top', mt);
-	})
-  
-  
-
 //eases
 const easeInCubic = t => t * t * t;
 const easeInQuintic = t => t * t * t * t * t;
@@ -188,7 +173,6 @@ function countersAnimation(){
   }
  if(this.last[0].getBoundingClientRect().top < 258){
   	console.log("stick last")
-    this.lastScroll = window.scrollY-5;
     this.one.hide()
     this.two.hide()
     this.three.hide()
@@ -197,6 +181,7 @@ function countersAnimation(){
     this.circleLast.find("h3").addClass("active");
     this.circleLast.find("p").css("opacity", 1);
     this.last.css("margin-top", 0);
+    this.leastScroll = this.last.offset().top;
     
     
     window.scrollTo(0, this.counterHead.offset().top)
@@ -210,4 +195,4 @@ function countersAnimation(){
 
 };
 
-$( window ).on("load", () => window.c = new Counters())
+
