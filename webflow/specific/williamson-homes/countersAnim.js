@@ -17,12 +17,11 @@ var Counters = function() {
   this.circleLast = $(".circle-last");
   this.counterHead = $(".counter-head");
   this.scrollingListener = false;
-  this.upscrollListener = false;
   this.scrolling = false;
   this.activate = () => {
     if($(".counter-head")[0].getBoundingClientRect().top==0){
         if(this.scrollingListener) return; // listener for scroll event already added
-        console.log("counters active");
+        console.log("counters active, from local");
         countersInitEvent(this);
       } else { // counters  not inside viewport - remove scroll listener
         if(!this.scrollingListener) return; // listener for scroll event already removed
@@ -31,6 +30,18 @@ var Counters = function() {
         this.circleTwo.find("p").css("opacity", 0);
     }
   }
+
+  this.upscrollListener = () => {
+
+    console.log("upscroll listener");
+    if(this.counterHead[0].getBoundingClientRect().top > 0){
+      
+      console.log("upscroll listener - counter head above viewport");
+      window.removeEventListener("scroll", this.upscrollListener);
+      this.reinit();
+    }
+
+  };
 
   this.reinit = () => {
     this.one.show()
@@ -43,12 +54,15 @@ var Counters = function() {
     this.last.css("margin-top", "240px");
     this.last.css("position", "sticky");
     if(this.lastScroll){
-     window.scrollTo(0, this.lastScroll);
+      window.scrollBy(0, this.one.height() + this.two.height() + this.three.height()
+      +120)
+      //window.scrollTo(0, c.last.offset().top-260)
      this.lastScroll = false;
     }
   }
 
   window.addEventListener("scroll", this.activate);
+
 
 };
 
@@ -139,7 +153,7 @@ function countersAnimation(){
 
   } 
   //phase three
-  else if(this.last[0].getBoundingClientRect().top > 258) {
+  else if(this.last[0].getBoundingClientRect().top > 256) {
     this.reinit();
     prog = (this.last[0].getBoundingClientRect().top - 256) / this.last.height();
 
@@ -171,7 +185,7 @@ function countersAnimation(){
 
   
   }
- if(this.last[0].getBoundingClientRect().top < 258){
+ if(this.last[0].getBoundingClientRect().top < 254){
   	console.log("stick last")
     this.one.hide()
     this.two.hide()
@@ -181,10 +195,16 @@ function countersAnimation(){
     this.circleLast.find("h3").addClass("active");
     this.circleLast.find("p").css("opacity", 1);
     this.last.css("margin-top", 0);
-    this.leastScroll = this.last.offset().top;
+    this.lastScroll = this.last.offset().top;
     
     
     window.scrollTo(0, this.counterHead.offset().top)
+    window.addEventListener("scroll", this.upscrollListener); 
+
+   
+
+  
+    
   
   }
 
