@@ -171,7 +171,7 @@ function countersAnimation(){
 
   
   }
- if(this.last[0].getBoundingClientRect().top < 258){
+ if(this.counterHead[0].getBoundingClientRect().top < 0){
   	console.log("stick last")
     this.one.hide()
     this.two.hide()
