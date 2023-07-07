@@ -22,7 +22,7 @@ var Counters = function() {
   this.activate = () => {
     if($(".counter-head")[0].getBoundingClientRect().top==0){
         if(this.scrollingListener) return; // listener for scroll event already added
-        console.log("counters active");
+        console.log("counters active, 1");
         countersInitEvent(this);
       } else { // counters  not inside viewport - remove scroll listener
         if(!this.scrollingListener) return; // listener for scroll event already removed
