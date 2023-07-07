@@ -1,3 +1,4 @@
+//eases
 const easeInCubic = t => t * t * t;
 const easeInQuintic = t => t * t * t * t * t;
 const easeOutCubic = t => (--t) * t * t + 1;
@@ -21,7 +22,7 @@ var Counters = function() {
   this.activate = () => {
     if($(".counter-head")[0].getBoundingClientRect().top==0){
         if(this.scrollingListener) return; // listener for scroll event already added
-        console.log("counters active, 1");
+        console.log("counters active");
         countersInitEvent(this);
       } else { // counters  not inside viewport - remove scroll listener
         if(!this.scrollingListener) return; // listener for scroll event already removed
@@ -170,7 +171,7 @@ function countersAnimation(){
 
   
   }
- if(this.counterHead[0].getBoundingClientRect().top < 0){
+ if(this.last[0].getBoundingClientRect().top < 258){
   	console.log("stick last")
     this.one.hide()
     this.two.hide()
@@ -193,3 +194,5 @@ function countersAnimation(){
 
 
 };
+
+
