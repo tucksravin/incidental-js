@@ -1,4 +1,3 @@
-//eases
 const easeInCubic = t => t * t * t;
 const easeInQuintic = t => t * t * t * t * t;
 const easeOutCubic = t => (--t) * t * t + 1;
@@ -194,5 +193,3 @@ function countersAnimation(){
 
 
 };
-
-
