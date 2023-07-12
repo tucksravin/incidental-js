@@ -18,6 +18,7 @@ var Counters = function() {
   this.counterHead = $(".counter-head");
   this.scrollingListener = false;
   this.scrolling = false;
+  this.halfASec = true;
   this.activate = () => {
     if($(".counter-head")[0].getBoundingClientRect().top==0){
         if(this.scrollingListener) return; // listener for scroll event already added
@@ -59,7 +60,8 @@ var Counters = function() {
      this.lastScroll = false;
     }
   }
-
+  this.halfASec = false;
+  setTimeout(() => {this.halfASec = true}, 500);
   window.addEventListener("scroll", this.activate);
 
 
@@ -184,7 +186,7 @@ function countersAnimation(){
 
   
   }
- if(this.last[0].getBoundingClientRect().top < 254){
+ if(this.last[0].getBoundingClientRect().top < 254&&this.halfASec){
   	console.log("stick last")
     this.one.hide()
     this.two.hide()
