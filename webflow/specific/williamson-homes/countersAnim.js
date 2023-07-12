@@ -54,8 +54,7 @@ var Counters = function() {
     this.last.css("margin-top", "240px");
     this.last.css("position", "sticky");
     if(this.lastScroll){
-      window.scrollBy(0, this.one.height() + this.two.height() + this.three.height()
-      +100)
+      window.scrollBy(0, this.one.height() + this.two.height() + this.three.height())
       //window.scrollTo(0, c.last.offset().top-260)
      this.lastScroll = false;
     }
