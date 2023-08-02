@@ -20,20 +20,22 @@ window.onresize =  window.slider.checkInc;
 
 window.slider.next = () => {
     window.slider.i++;
-    if(window.slider.i > window.slider.length-1){
-        window.slider.i = 0;
+    if(window.slider.i % window.slider.length==0){
+        window.slider.slides.clone().appendTo($(".big-review-slider"));
     }
 
-    $(".big-review-slider").css("transform", "translateX(-" + window.slider.inc * window.slider.i + "rem)");
+    $(".big-review-slider").css("transform", "translateX(" + -1 * window.slider.inc * window.slider.i + "rem)");
 }
 
 window.slider.prev = () => { 
     window.slider.i--;
-    if(window.slider.i < 0){
-        window.slider.i = window.slider.length-1;
+    if(window.slider.i % window.slider.length == -1){
+        window.slider.slides.clone().prependTo($(".big-review-slider"));
+        let prepNum = -1*(window.slider.i+1)/window.slider.length+1;
+        $(".big-review-slider").css("margin-left", "-" + prepNum * window.slider.length * window.slider.inc + "rem")
     }
 
-    $(".big-review-slider").css("transform", "translateX(-" + window.slider.inc * window.slider.i + "rem)");
+    $(".big-review-slider").css("transform", "translateX("+ -1*window.slider.inc * window.slider.i + "rem)");
 }
 
 $(".big-review-arrow-left").click(window.slider.next);
