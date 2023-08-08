@@ -13,7 +13,7 @@ else{
     window.slider.inc = 20;
 }
 
-console.log(window.slider.inc);
+//console.log(window.slider.inc);
 }
 
 window.slider.checkInc();

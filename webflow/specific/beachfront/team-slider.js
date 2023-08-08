@@ -9,13 +9,15 @@ window.teamSlider.showLeft = () => $(".left").css({"opacity":"1", "pointer-event
 window.teamSlider.showRight = () => $(".right").css({"opacity":"1", "pointer-events":"auto"});
 
 window.teamSlider.checkInc = () => {
-if(window.innerWidth < 480){
-  window.teamSlider.inc = 9;
-}
-else{
-    window.teamSlider.inc = 9;
-}
 
+    window.teamSlider.inc = 9;
+
+    if(window.innerWidth < 992) 
+        window.teamSlider.inc = 18;
+    
+    if(window.innerWidth < 480)
+        window.teamSlider.inc = 13;
+    
 console.log(window.teamSlider.inc);
 }
 
