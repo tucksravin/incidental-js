@@ -38,8 +38,8 @@ window.slider.prev = () => {
     $(".big-review-slider").css("transform", "translateX("+ -1*window.slider.inc * window.slider.i + "rem)");
 }
 
-$(".big-review-arrow-left").click(window.slider.next);
-$(".big-review-arrow-right").click(window.slider.prev);
+$(".big-review-arrow-right").click(window.slider.next);
+$(".big-review-arrow-left").click(window.slider.prev);
 
 //webflow specific bugs
 $(".big-review").css("opacity", "1");
