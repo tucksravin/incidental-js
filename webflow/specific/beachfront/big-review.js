@@ -17,7 +17,7 @@ else{
 }
 
 window.slider.checkInc();
-window.onresize =  window.slider.checkInc;
+$( window ).on("window:resize",   window.slider.checkInc);
 
 window.slider.next = () => {
     window.slider.i++;

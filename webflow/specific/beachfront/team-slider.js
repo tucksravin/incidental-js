@@ -22,7 +22,7 @@ console.log(window.teamSlider.inc);
 }
 
 window.teamSlider.checkInc();
-window.onresize =  window.teamSlider.checkInc;
+$( window ).on("window:resize", window.teamSlider.checkInc);
 
 window.teamSlider.next = () => {
     window.teamSlider.i++;

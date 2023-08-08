@@ -24,9 +24,12 @@ var toggle = function(){
     
 $(".togglable").click(toggle);
 
-//resize decoupler: call  $(window).on("window:resize", ( el ) => {
-        //do some task A
-   // })
+/*
+resize decoupler: 
+    call:
+        $(window).on("window:resize", (e) => {do stuff});
+    instead of overwriting window.onresize
+   */
 
 $(window).resize(function () {
     $(window).trigger("window:resize")
