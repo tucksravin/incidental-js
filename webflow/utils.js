@@ -35,6 +35,11 @@ $(window).resize(function () {
     $(window).trigger("window:resize")
  })
 
+
+ /*
+    for absolute and or sticky elements that can't go in a content width but still need to be aligned to other content that is in a content width.
+ */
+
  var getContentWidthMargins = function(){
     let maxWidth =  parseInt($(".content-width").css("max-width").slice(0,-2));
     let paddingLeft = parseInt($(".content-width").css("padding-left").slice(0,-2));
