@@ -2,7 +2,7 @@ window.teamSlider = {};
 window.teamSlider.slides = $(".team-list-item");
 window.teamSlider.i = 0;
 window.teamSlider.length = $(".team-list-item").length;
-window.teamSlider.inc = 9;
+window.teamSlider.inc = 9.5;
 window.teamSlider.hideLeft = () => $(".left").css({"opacity":"0", "pointer-events":"none"});
 window.teamSlider.hideRight = () => $(".right").css({"opacity":"0", "pointer-events":"none"});
 window.teamSlider.showLeft = () => $(".left").css({"opacity":"1", "pointer-events":"auto"});
