@@ -34,3 +34,17 @@ resize decoupler:
 $(window).resize(function () {
     $(window).trigger("window:resize")
  })
+
+ var getContentWidthMargins = function(){
+    let maxWidth =  parseInt($(".content-width").css("max-width").slice(0,-2));
+    let paddingLeft = parseInt($(".content-width").css("padding-left").slice(0,-2));
+
+    if(maxWidth > window.innerWidth)
+        return paddingLeft;
+
+    return (window.innerWidth - maxWidth)/2+paddingLeft;
+ };
+
+   
+    
+  
