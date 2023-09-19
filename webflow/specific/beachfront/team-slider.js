@@ -2,7 +2,9 @@ window.teamSlider = {};
 window.teamSlider.slides = $(".team-list-item");
 window.teamSlider.i = 0;
 window.teamSlider.length = $(".team-list-item").length;
-window.teamSlider.inc = 9.5;
+window.teamSlider.portSize = window.innerWidth-(getContentWidthMargin()*2);
+window.teamSlider.inc = window.teamSlider.portSize/3;
+window.teamSlider.slideHorMargin = 0;
 window.teamSlider.hideLeft = () => $(".left").css({"opacity":"0", "pointer-events":"none"});
 window.teamSlider.hideRight = () => $(".right").css({"opacity":"0", "pointer-events":"none"});
 window.teamSlider.showLeft = () => $(".left").css({"opacity":"1", "pointer-events":"auto"});
@@ -10,14 +12,17 @@ window.teamSlider.showRight = () => $(".right").css({"opacity":"1", "pointer-eve
 
 window.teamSlider.checkInc = () => {
 
-    window.teamSlider.inc = 9;
+    window.teamSlider.portSize = $(".team-slider-holder").width();
+    window.teamSlider.inc = window.teamSlider.portSize/3;
+    window.slideHorMargin = (window.teamSlider.portSize-3*$(".team-list-item").outerWidth(false))/6;
 
-    if(window.innerWidth < 992) 
-        window.teamSlider.inc = 18;
+    if(window.innerWidth < 992){ 
+        window.teamSlider.inc = window.teamSlider.portSize;
+        window.slideHorMargin = (window.teamSlider.portSize-$(".team-list-item").outerWidth(false))/2;
+        }
     
-    if(window.innerWidth < 480)
-        window.teamSlider.inc = 13;
-    
+        $(".team-list-item").css("margin-right", "" + window.slideHorMargin + "px");
+        $(".team-list-item").css("margin-left", "" + window.slideHorMargin + "px");
 console.log(window.teamSlider.inc);
 }
 
@@ -37,7 +42,7 @@ window.teamSlider.next = () => {
 
     console.log("click right")
 
-    $(".team-slider").css("transform", "translateX(" + -1 * window.teamSlider.inc * window.teamSlider.i + "rem)");
+    $(".team-slider").css("transform", "translateX(" + -1 * window.teamSlider.inc * window.teamSlider.i + "px)");
 }
 
 window.teamSlider.prev = () => { 
@@ -50,7 +55,7 @@ window.teamSlider.prev = () => {
 
     console.log("click left")
 
-    $(".team-slider").css("transform", "translateX("+ -1*window.teamSlider.inc * window.teamSlider.i + "rem)");
+    $(".team-slider").css("transform", "translateX("+ -1*window.teamSlider.inc * window.teamSlider.i + "px)");
 }
 
 $(".right").click(window.teamSlider.next);
