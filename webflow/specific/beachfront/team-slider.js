@@ -19,7 +19,8 @@ window.teamSlider.checkInc = () => {
     if(window.innerWidth < 992){ 
         window.teamSlider.inc = window.teamSlider.portSize;
         window.slideHorMargin = (window.teamSlider.portSize-$(".team-list-item").outerWidth(false))/2;
-        }
+        $(".team-slider").css("margin-left", "-" + window.slideHorMargin/2 + "px");
+    }
     
         $(".team-list-item").css("margin-right", "" + window.slideHorMargin + "px");
         $(".team-list-item").css("margin-left", "" + window.slideHorMargin + "px");
@@ -42,7 +43,7 @@ window.teamSlider.next = () => {
 
     console.log("click right")
 
-    $(".team-slider").css("transform", "translateX(" + -1 * window.teamSlider.inc * window.teamSlider.i + "px)");
+    $(".team-slider").css("transform", "translateX(" + -1 * (window.teamSlider.inc * window.teamSlider.i) + "px)");
 }
 
 window.teamSlider.prev = () => { 
