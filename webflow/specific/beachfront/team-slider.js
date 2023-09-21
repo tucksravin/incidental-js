@@ -21,6 +21,10 @@ window.teamSlider.checkInc = () => {
         window.slideHorMargin = (window.teamSlider.portSize-$(".team-list-item").outerWidth(false))/2;
         $(".team-slider").css("margin-left", "-" + window.slideHorMargin/2 + "px");
     }
+
+    if(window.innerWidth < 768)
+        $(".team-slider").css("margin-left", 0);
+    
     
         $(".team-list-item").css("margin-right", "" + window.slideHorMargin + "px");
         $(".team-list-item").css("margin-left", "" + window.slideHorMargin + "px");
