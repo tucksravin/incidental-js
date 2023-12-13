@@ -1,13 +1,22 @@
 window.slider = {};
 window.slider.slides = $(".big-review-item");
+window.slider.sliderport = $(".review-slider-holder-viewport");
+window.slider.arrowleft = $(".big-review-arrow-left")
+window.slider.arrowright = $(".big-review-arrow-right")
 window.slider.i = 0;
 window.slider.length = $(".big-review-item").length;
 window.slider.inc = 20;
 window.slider.cloneCount = 1;
 
+//mobile 1 rem is 24px
+let mobileSlidesWidth;
+
 window.slider.checkInc = () => {
 if(window.innerWidth < 480){
-  window.slider.inc = 15;
+  
+  mobileSlidesWidth = window.slider.sliderport.width()/24;
+  window.slider.slides.css("width", ""+mobileSlidesWidth+"rem")
+  window.slider.inc = 5+mobileSlidesWidth;
 }
 else{
     window.slider.inc = 20;
